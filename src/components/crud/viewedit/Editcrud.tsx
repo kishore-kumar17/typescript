@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { editUsers, fetchUsers } from "./postSlice";
-import { Dispatched, RootState } from "./store";
+import { editUsers, fetchUsers } from "../store/postSlice";
+import { Dispatched, RootState } from "../store/store";
 
 const Editcrud = () => {
   const dispatch = useDispatch<Dispatched>();
@@ -18,7 +18,7 @@ const Editcrud = () => {
   }, []);
 
   const updatedata =
-    upgrad && upgrad.posts.find((data: any) => data.id.tostring() === id);
+    Array.isArray(upgrad) && upgrad.find((data: any) => data.id.tostring() === id);
   //   console.log(updatedata);
   useEffect(() => {
     if (updatedata) {
@@ -41,9 +41,7 @@ const Editcrud = () => {
     seteditdata({ ...editdata, [e.target.name]: e.target.value });
     if (!e.target.value) {
       seterror({
-        ...error,
-        [e.target
-          .name]: `${e.target.name} CAN'T BE EMPTY SO FILL IN THE VALUES `,
+        ...error,[e.target.name]: `${e.target.name} CAN'T BE EMPTY SO FILL IN THE VALUES `,
       });
     } else {
       seterror({ ...error, [e.target.name]: "" });
@@ -52,7 +50,6 @@ const Editcrud = () => {
   };
 
   const handlesubmit = (e: React.FormEvent) => {
-    //regex adhar,mobilenumber
 
     //validation....
 
@@ -145,7 +142,7 @@ const Editcrud = () => {
               </div>
               <br />
               <div>
-                <Button type="submit" variant="info">
+                <Button type="submit" variant="secondary">
                   UPDATE
                 </Button>
               </div>

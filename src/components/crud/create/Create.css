@@ -1,19 +1,17 @@
 .box{
     border:1px solid black;
-    padding: 30px;
+    padding: 10px;
     border-radius: 20px;
     opacity: 1.2;
     background-image: linear-gradient(to top, orange,white,white,green);
 }
 #logo{
     border-radius: 30px;
-    margin-left: 220px;
+    margin-left: 200px;
     height: 100px;
 }
 .boxes{
     border:1px solid black;
-    padding: 30px;
+    padding: 10px;
     border-radius: 20px;
-
-
 }

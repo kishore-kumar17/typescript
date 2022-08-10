@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteUsers, fetchUsers } from "./postSlice";
+import { deleteUsers, fetchUsers } from "../store/postSlice";
 import { Button, Modal } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import { Dispatched, RootState } from "./store";
+import { Dispatched, RootState } from "../store/store";
 
 const Viewcrud = () => {
   const dispatch = useDispatch<Dispatched>();
   const navi = useNavigate();
   const [show, setshow] = useState(false);
-  const post = useSelector((state: RootState) => state.post);
+  const post:any = useSelector((state: RootState) => state.post);
 
   type val = {
     name?: string;
@@ -77,7 +77,7 @@ const Viewcrud = () => {
                         variant="outline-danger"
                         onClick={(e) => deletedata(data.id)}
                       >
-                        DELETE
+                       DELETE
                       </Button>
 
                       {show && (

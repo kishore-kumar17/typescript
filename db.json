@@ -1,0 +1,32 @@
+{
+  "posts": [
+    {
+      "name": "kishore",
+      "fathername": "kumar",
+      "adharnumber": "12121212212",
+      "mobilenumber": "1231231231",
+      "dob": "1212-12-12",
+      "id": 2
+    },
+    {
+      "name": "HARISH",
+      "fathername": "kumar",
+      "adharnumber": "111111111111",
+      "mobilenumber": "1212121212",
+      "dob": "1222-12-12",
+      "id": 3
+    },
+    {
+      "name": "kishore",
+      "fathername": "kumar",
+      "adharnumber": "123456789012",
+      "mobilenumber": "0987654321",
+      "dob": "1111-11-11",
+      "id": 4
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}

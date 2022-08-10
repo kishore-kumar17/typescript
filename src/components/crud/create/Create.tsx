@@ -3,8 +3,8 @@ import { Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import "./Create.css";
 import { useDispatch } from "react-redux";
-import { addUsers } from "./postSlice";
-import { Dispatched } from "./store";
+import { addUsers } from "../store/postSlice";
+import { Dispatched } from "../store/store";
 
 const Create = () => {
   const dispatch = useDispatch<Dispatched>();
@@ -48,7 +48,7 @@ const Create = () => {
 
   //validation....
 
-  const handlesubmit = (e: React.FormEvent) => {
+  const handlesubmit = (e:React.FormEvent) => {
     // regex validation
 
     // const dateRegex bending

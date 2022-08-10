@@ -1,16 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const initialState = {
-  loading: false,
-  posts: [],
-  error: "",
-};
-// type initialState = {
-//   loading: boolean
-//   posts:[],
-//   error:string,
-// };
+const initialState = {};
+interface initial {
+  loading?: boolean;
+  posts?: any;
+  error?: string;
+}
 
 // actions here
 
@@ -28,7 +24,7 @@ export const addUsers: any = createAsyncThunk("post/addusers", (val) => {
 
 export const deleteUsers: any = createAsyncThunk(
   "post/deleteusers",
-  (users) => {
+  (users: any) => {
     // console.log(users)
     return axios
       .delete(`http://localhost:9000/posts/${users}`)
@@ -46,19 +42,20 @@ export const editUsers: any = createAsyncThunk(
   }
 );
 
-const postSlice = createSlice({
+const postSlice: any = createSlice({
   name: "post",
-  initialState,
+  initialState: initialState,
+  reducers: {},
   extraReducers: (bind) => {
-    bind.addCase(fetchUsers.pending, (state) => {
+    bind.addCase(fetchUsers.pending, (state: initial) => {
       state.loading = true;
     });
-    bind.addCase(fetchUsers.fulfilled, (state, action) => {
+    bind.addCase(fetchUsers.fulfilled, (state: initial, action) => {
       state.loading = false;
       state.posts = action.payload;
       state.error = "";
     });
-    bind.addCase(fetchUsers.rejected, (state, action) => {
+    bind.addCase(fetchUsers.rejected, (state: initial, action) => {
       state.loading = false;
       state.posts = [];
       state.error = action.error.message;
@@ -66,4 +63,4 @@ const postSlice = createSlice({
   },
 });
 
-export default postSlice.reducer;
+export default postSlice;

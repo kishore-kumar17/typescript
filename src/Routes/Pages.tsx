@@ -1,13 +1,11 @@
 import { Link } from "react-router-dom";
 
-const Routes = () => {
+const Pages = () => {
   return (
     <div>
       Routes
       <ol>
-      <li>
-          <Link to="*">typescript </Link>
-        </li>
+      
         <li>
           <Link to="/todo">todo </Link>
         </li>
@@ -34,4 +32,4 @@ const Routes = () => {
   );
 };
 
-export default Routes;
+export default Pages;

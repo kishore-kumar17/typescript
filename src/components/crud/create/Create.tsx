@@ -4,10 +4,9 @@ import { useNavigate } from "react-router-dom";
 import "./Create.css";
 import { useDispatch } from "react-redux";
 import { addUsers } from "../store/postSlice";
-import { Dispatched } from "../store/store";
 
 const Create = () => {
-  const dispatch = useDispatch<Dispatched>();
+  const dispatch = useDispatch();
   const [data, setdata] = useState<vali>({});
   const [error, seterror] = useState<vali>({});
   const navigate = useNavigate();
@@ -42,20 +41,11 @@ const Create = () => {
     } else {
       seterror({ ...error, [e.target.name]: "" });
     }
-    // console.log(data);
   };
   // test cases....have been error.
 
-  //validation....
-
-  const handlesubmit = (e:React.FormEvent) => {
-    // regex validation
-
-    // const dateRegex bending
-
+  const handlesubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
-    // seterror({ ...error, [e.target.name]: e.target.value });
 
     if (!data.name) {
       seterror({ name: "NAME is important in adhar card" });
@@ -157,5 +147,4 @@ const Create = () => {
     </div>
   );
 };
-
 export default Create;

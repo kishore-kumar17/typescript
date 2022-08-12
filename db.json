@@ -1,12 +1,12 @@
 {
   "posts": [
     {
+      "id": 2,
       "name": "kishore",
-      "fathername": "kumar",
+      "fathername": "kumar hai",
       "adharnumber": "12121212212",
       "mobilenumber": "1231231231",
-      "dob": "1212-12-12",
-      "id": 2
+      "dob": "1212-12-12"
     },
     {
       "name": "HARISH",

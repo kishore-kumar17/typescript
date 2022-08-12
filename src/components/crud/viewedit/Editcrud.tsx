@@ -9,7 +9,7 @@ const Editcrud = () => {
   const dispatch = useDispatch<Dispatched>();
   const [editdata, seteditdata] = useState<change>({});
   const [error, seterror] = useState<change>({});
-  const upgrad = useSelector((state: RootState) => state.post);
+  const upgrad: any = useSelector((state: RootState) => state.post);
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -18,8 +18,11 @@ const Editcrud = () => {
   }, []);
 
   const updatedata =
-    Array.isArray(upgrad) && upgrad.find((data: any) => data.id.tostring() === id);
-  //   console.log(updatedata);
+    Array.isArray(upgrad.posts) &&
+    upgrad.posts.find((data: any) => data.id === Number(id));
+
+  console.log(updatedata);
+
   useEffect(() => {
     if (updatedata) {
       seteditdata(updatedata);
@@ -41,7 +44,9 @@ const Editcrud = () => {
     seteditdata({ ...editdata, [e.target.name]: e.target.value });
     if (!e.target.value) {
       seterror({
-        ...error,[e.target.name]: `${e.target.name} CAN'T BE EMPTY SO FILL IN THE VALUES `,
+        ...error,
+        [e.target
+          .name]: `${e.target.name} CAN'T BE EMPTY SO FILL IN THE VALUES `,
       });
     } else {
       seterror({ ...error, [e.target.name]: "" });
@@ -50,7 +55,6 @@ const Editcrud = () => {
   };
 
   const handlesubmit = (e: React.FormEvent) => {
-
     //validation....
 
     e.preventDefault();

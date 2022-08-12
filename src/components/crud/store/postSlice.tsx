@@ -42,7 +42,7 @@ export const editUsers: any = createAsyncThunk(
   }
 );
 
-const postSlice: any = createSlice({
+const postSlice = createSlice({
   name: "post",
   initialState: initialState,
   reducers: {},
@@ -62,5 +62,9 @@ const postSlice: any = createSlice({
     });
   },
 });
+
+// export function StoreProvider({children}:any) {
+//   return  <Provider store ={store}>{children}</Provider>
+// };
 
 export default postSlice;

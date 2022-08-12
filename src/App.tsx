@@ -7,8 +7,9 @@ import Create from "./components/crud/create/Create";
 import { store } from "./components/crud/store/store";
 import Viewcrud from "./components/crud/viewedit/Viewcrud";
 import NewTodo from "./components/exercies/Newtodo";
-import RegistrationForm from "./components/login,register form/RegistrationFrom";
-import LoginForm from "./components/login,register form/LoginForm";
+import RegistrationForm from "./components/registerform/RegistrationFrom";
+import LoginForm from "./components/loginform/LoginForm";
+import Pages from "./Routes/Pages";
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
       <Provider store={store}>
         <BrowserRouter>
           <Routes>
-            <Route path="/*" element={<Routes />}></Route>
+            <Route path="/" element={<Pages />}></Route>
             <Route path="/newtodo" element={<NewTodo />}></Route>
             <Route path="/create" element={<Create />}></Route>
             <Route path="/viewcrud" element={<Viewcrud />}></Route>

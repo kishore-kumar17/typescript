@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import "./Reisterationform.css";
 
 const RegistrationForm = () => {
   return (
@@ -15,7 +16,7 @@ const RegistrationForm = () => {
             type="text"
             className="fname"
             data-testid="fname"
-            placeholder="fname"
+            placeholder="Firstname"
           ></Form.Control>
           <br />
           <div>
@@ -25,7 +26,7 @@ const RegistrationForm = () => {
             type="text"
             className="lname"
             data-testid="lname"
-            placeholder="lname"
+            placeholder="Lastname"
           ></Form.Control>
           <br />
           <div>
@@ -59,7 +60,7 @@ const RegistrationForm = () => {
           <br />
           <br />
           <Button>REGISTER</Button>
-          <p>
+          <p className="mt-5">
             i have an account ...<Link to="/loginform">Login Here</Link>
           </p>
         </Form>

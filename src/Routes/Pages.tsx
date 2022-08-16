@@ -27,6 +27,9 @@ const Pages = () => {
         <li>
           <Link to="/loginform">LOGIN </Link>
         </li>
+        <li>
+          <Link to="/login">INTERCEPTORS</Link>
+        </li>
       </ol>
     </div>
   );

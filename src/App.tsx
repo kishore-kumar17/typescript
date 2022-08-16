@@ -10,6 +10,8 @@ import NewTodo from "./components/exercies/Newtodo";
 import RegistrationForm from "./components/registerform/RegistrationFrom";
 import LoginForm from "./components/loginform/LoginForm";
 import Pages from "./Routes/Pages";
+import Login from "./components/interceptors/Forntend/Login";
+import Register from "./components/interceptors/Forntend/Register";
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
             <Route path="/editcrud/:id" element={<Editcrud />}></Route>
             <Route path="/registerationform" element={<RegistrationForm />}></Route>
             <Route path="/loginform" element={< LoginForm/>}></Route>
+            <Route path="/login" element={< Login/>}></Route>
+            <Route path="/register" element={< Register/>}></Route>
           </Routes>
         </BrowserRouter>
       </Provider>

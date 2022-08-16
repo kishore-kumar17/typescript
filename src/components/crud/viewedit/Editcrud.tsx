@@ -21,7 +21,7 @@ const Editcrud = () => {
     Array.isArray(upgrad.posts) &&
     upgrad.posts.find((data: any) => data.id === Number(id));
 
-  console.log(updatedata);
+  // console.log(updatedata);
 
   useEffect(() => {
     if (updatedata) {

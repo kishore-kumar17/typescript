@@ -2,8 +2,7 @@
   display: flex;
   justify-content: center;
   min-height: 100vh;
-  background-image: linear-gradient(to bottom ,blueviolet,white,white);
-  background-image: linear-gradient(to top ,blue);
+  /* background-image: linear-gradient(to bottom ,blueviolet,white,white); */
   border: 1px solid black;
   padding: 100px;
 }

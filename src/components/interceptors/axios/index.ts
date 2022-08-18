@@ -4,6 +4,10 @@ const customAxios = axios.create({
   baseURL: "http://localhost:5000/",
 });
 
+
+
+//requst handler...
+
 const reqInterceptor = customAxios.interceptors.request.use(
   async (config) => {
     const token = localStorage.getItem("access_token");
@@ -16,6 +20,10 @@ const reqInterceptor = customAxios.interceptors.request.use(
     return Promise.reject(error);
   }
 );
+
+
+
+// responce handler.....
 
 createAxiosResponseInterceptor();
 
@@ -44,6 +52,7 @@ function createAxiosResponseInterceptor() {
             );
             error.response.config.headers["x-access-token"] =
               localStorage.getItem("access_token");
+              
             return axios(error.response.config);
           })
           .catch((error) => {

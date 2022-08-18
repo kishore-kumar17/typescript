@@ -1,23 +1,74 @@
 import { FormEvent, useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import customAxios from "../axios";
 
 const Login = () => {
-  const [loginid, setloginid] = useState("");
-  const [pw, setpw] = useState("");
 
-  const login = (e: FormEvent) => {
+  const [loginName, setloginName] = useState<newlogin>(initial);
+  const navigate =useNavigate();
+
+  interface newlogin {
+    name?: string;
+    password?: string;
+  } 
+  interface keyvalue {
+    name?:string;
+    password?:string;
+  }
+
+const initial:newlogin={
+  name:'',
+  password:''
+};
+
+
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    let { username,password } = loginName;
+  if (username && password){
+    setloginName(initial)
+  
+    customAxios
+      .post('/auth/login',{username})
+      .then((responce) => {
+        console.log('responce.data',responce)
+        if(responce?.data?.status === 'Success'){
+          localStorage.setItem('access_token', responce.data.token);
+            localStorage.setItem('refresh_token', responce.data.refreshToken);
+            navigate('/home');
+        } else{
+          alert('Login Failed');
+        }
+      })
+      .catch((err) => console.error(err.message));
+}
+}
   };
+
+
+  const handleChange = (prop:keyvalue) =>{
+    let finalvalue:newlogin = {...loginName }
+    if (prop.key === 'username') finalvalue.username = prop.value
+    else if(prop.key === 'password') finalvalue.password = prop.value
+    setloginName(finalvalue)
+  }
+
+
+
+
+
+  
+
 
   return (
     <div className="container col-4 mt-5">
       <h1>
         <i>LOGIN FORM</i>
       </h1>
-      <form onSubmit={login}>
+      <form onSubmit={handleSubmit}>
         <div className="mt-5">
-          <Form.Label>LOGIN ID</Form.Label> &nbsp;&nbsp;
+          <Form.Label>REGISTER NAME</Form.Label> &nbsp;&nbsp;
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -32,17 +83,18 @@ const Login = () => {
               d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
             />
           </svg>
-          <Form.Control
-            type="text"
-            autoFocus
-            name="userid"
-            placeholder="kishore Kumar"
-            value={loginid}
-            onChange={(e) => setloginid(e.target.value)}
-          ></Form.Control>
         </div>
+        <input
+          type="text"
+          autoFocus
+          name="username"
+          placeholder="kishore Kumar"
+          onChange={(e) =>
+            handleChange({ key:"username", value: e.target.value })
+          }
+        ></input>
         <br />
-
+        <br />
         <div>
           <Form.Label>PASSWORD</Form.Label> &nbsp;&nbsp;
           <svg
@@ -56,12 +108,13 @@ const Login = () => {
             <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z" />
           </svg>
         </div>
-        <Form.Control
+        <input
           type="text"
           name="password"
-          value={pw}
-          onChange={(e) => setpw(e.target.value)}
-        ></Form.Control>
+          onChange={(e) =>
+            handleChange({ key:"password", value: e.target.value })
+          }
+        ></input>
         <br />
         <br />
         <div>

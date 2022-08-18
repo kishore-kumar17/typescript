@@ -3,11 +3,13 @@ import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const Register = () => {
+
+
   return (
     <div className=" container mt-5">
       <div className="row">
         <h1>REGISTER FORM</h1>
-        <div>
+        <div className="col-lg justify-Contant-Center">
           <Form>
             <div>
               <Form.Label> NAME </Form.Label>
@@ -54,6 +56,8 @@ const Register = () => {
             </p>
           </Form>
         </div>
+        {/* <div className="col-lg-4">hi</div>
+        <div className="col-lg-5">hi</div> */}
       </div>
     </div>
   );

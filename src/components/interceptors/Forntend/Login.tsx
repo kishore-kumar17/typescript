@@ -2,7 +2,7 @@ import { FormEvent, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import customAxios from "../axios";
-
+import './Login.css';
 const Login = () => {
   //before the initial
   const initial: newlogin = {
@@ -53,11 +53,11 @@ const Login = () => {
   };
 
   return (
-    <div className="container col-4 mt-5">
+    <div className="container col-lg-5 mt-5 full-box">
       <h1>
         <i> GOOGLE LOGIN FORM</i>
       </h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="background-box">
         <div className="mt-5">
           <Form.Label>REGISTERED MAIL</Form.Label> &nbsp;&nbsp;
           <svg

@@ -49,10 +49,10 @@ const Register = () => {
   }
 
   return (
-    <div className=" container mt-5">
-      <div className="row">
+    <div className="container mt-5">
+      <div className="row" style={{textAlign:'center'}}>
         <h1> GOOGLE REGISTER FORM</h1>
-        <div className="col-lg justify-Contant-Center">
+        <div >
           <Form onSubmit={(e) => handleSubmit(e)}>
             <div>
               <Form.Label> NAME </Form.Label>

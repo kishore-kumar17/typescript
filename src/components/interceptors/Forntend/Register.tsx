@@ -5,7 +5,7 @@ import customAxios from "../axios";
 
 const Register = () => {
   const [register, setregister] = useState<newregister>({});
-  const [modal, setModal] = useState(false);
+  const [modal, setmodal] = useState(false);
   const navigate = useNavigate();
 
   interface newregister {
@@ -14,10 +14,7 @@ const Register = () => {
     mobilenumber?: string;
     password?: string;
   }
-  //model popup
-  const handleModel = () => {
-    setModal(true);
-  };
+ 
 
   //input changes...
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -26,26 +23,35 @@ const Register = () => {
   //form submit...
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setmodal(true);
+    console.log(register);
+  };
+
+
+  //model popup
+
+  const newHandleSubmit=(e:React.MouseEvent<HTMLButtonElement>)=>{
+    e.preventDefault();
     let { name, email, mobilenumber, password } = register;
-    // console.log(sakjd)
-    customAxios
-      .post("/auth/signup", { name, password })
+
+      customAxios
+      .post("/auth/signup", { email, password })
       .then((responce) => {
         if (responce.status === 201) {
-          // alert("User Registered Succesfully");
-          handleModel();
+          // modal popup
+          
           navigate("/login");
         } else {
           alert("SORRY !...   Failed To register User");
         }
       })
       .catch((error) => console.error(error.message));
-  };
+  }
 
   return (
     <div className=" container mt-5">
       <div className="row">
-        <h1>REGISTER FORM</h1>
+        <h1> GOOGLE REGISTER FORM</h1>
         <div className="col-lg justify-Contant-Center">
           <Form onSubmit={(e) => handleSubmit(e)}>
             <div>
@@ -59,7 +65,6 @@ const Register = () => {
             ></input>
             <br />
             <br />
-
             <div>
               <Form.Label>EMAIL ID</Form.Label>
             </div>
@@ -102,25 +107,22 @@ const Register = () => {
             </p>
           </Form>
         </div>
-        {/* <div className="col-lg-4">hi</div>
-        <div className="col-lg-5">hi</div> */}
+    
       </div>
-      {modal && (
-        <Modal.Dialog>
-          <Modal.Header closeButton>
-            <Modal.Title>Success</Modal.Title>
-          </Modal.Header>
-
-          <Modal.Body>
-            <p>REGISTER successfully done..</p>
-          </Modal.Body>
-
-          <Modal.Footer>
-            <Button variant="secondary">Close</Button>
-            <Button variant="primary">Save </Button>
-          </Modal.Footer>
-        </Modal.Dialog>
-      )}
+      {modal && 
+        <Modal show={modal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Register succesfully!...</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Woohoo, GO to login here.</Modal.Body>
+        <Modal.Footer>
+          
+          <Button variant="primary" onClick={(e)=>newHandleSubmit(e)}>
+            okay
+          </Button>
+        </Modal.Footer>
+      </Modal>
+      }
     </div>
   );
 };

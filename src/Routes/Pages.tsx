@@ -5,7 +5,6 @@ const Pages = () => {
     <div>
       Routes
       <ol>
-      
         <li>
           <Link to="/todo">todo </Link>
         </li>
@@ -29,6 +28,12 @@ const Pages = () => {
         </li>
         <li>
           <Link to="/login">INTERCEPTORS</Link>
+        </li>
+        <li>
+          <Link to="/mui">sidenav</Link>
+        </li>
+        <li>
+          <Link to="/nav"> side navigation</Link>
         </li>
       </ol>
     </div>

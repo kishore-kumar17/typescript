@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Card } from "react-bootstrap";
 import { useNavigate } from "react-router";
 import customAxios from "../axios";
@@ -17,6 +17,8 @@ const Home = () => {
         console.error(error.message);
       });
   };
+  //each and every time render ...
+  useEffect(()=>console.log('data',value),[value])
 
   const logout = () => {
     localStorage.clear();

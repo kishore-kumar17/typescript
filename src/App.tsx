@@ -13,6 +13,8 @@ import Pages from "./Routes/Pages";
 import Login from "./components/interceptors/Forntend/Login";
 import Register from "./components/interceptors/Forntend/Register";
 import Home from "./components/interceptors/Forntend/Home";
+import Sidebar from "./components/Sidebar";
+import Navheader from "./components/Navbar/Navheader";
 
 function App() {
   return (
@@ -21,6 +23,7 @@ function App() {
       {/* <NewTodo /> */}
       <Provider store={store}>
         <BrowserRouter>
+        
           <Routes>
             <Route path="/" element={<Pages />}></Route>
             <Route path="/newtodo" element={<NewTodo />}></Route>
@@ -32,8 +35,11 @@ function App() {
             <Route path="/login" element={< Login/>}></Route>
             <Route path="/register" element={< Register/>}></Route>
             <Route path="/home" element={< Home/>}></Route>
+            <Route path="/mui" element={<Sidebar/>}></Route>
+            <Route path="/nav" element={<Navheader/>}></Route>
 
           </Routes>
+          
         </BrowserRouter>
       </Provider>
     </div>

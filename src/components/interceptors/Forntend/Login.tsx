@@ -79,7 +79,7 @@ const Login = () => {
           type="email"
           autoFocus
           name="usermail"
-          placeholder="kk@gmail.com"
+          placeholder="ex :kk@gmail.com"
           onChange={(e) =>
             handleChange({ key: "usermail", value: e.target.value })
           }

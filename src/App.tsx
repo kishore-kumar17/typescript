@@ -14,16 +14,16 @@ import Login from "./components/interceptors/Forntend/Login";
 import Register from "./components/interceptors/Forntend/Register";
 import Home from "./components/interceptors/Forntend/Home";
 import Sidebar from "./components/Sidebar";
-import Navheader from "./components/Navbar/Navheader";
+import NavBar from "./components/sidenavbar/NavBar";
 
 function App() {
   return (
     <div className="App">
       {/* <Todo items={["FIRST PROPS PASS", "SECOUND PROPS PASS"]}></Todo> */}
       {/* <NewTodo /> */}
+
       <Provider store={store}>
         <BrowserRouter>
-        
           <Routes>
             <Route path="/" element={<Pages />}></Route>
             <Route path="/newtodo" element={<NewTodo />}></Route>
@@ -31,15 +31,13 @@ function App() {
             <Route path="/viewcrud" element={<Viewcrud />}></Route>
             <Route path="/editcrud/:id" element={<Editcrud />}></Route>
             <Route path="/registerationform" element={<RegistrationForm />}></Route>
-            <Route path="/loginform" element={< LoginForm/>}></Route>
-            <Route path="/login" element={< Login/>}></Route>
-            <Route path="/register" element={< Register/>}></Route>
-            <Route path="/home" element={< Home/>}></Route>
-            <Route path="/mui" element={<Sidebar/>}></Route>
-            <Route path="/nav" element={<Navheader/>}></Route>
-
+            <Route path="/loginform" element={<LoginForm />}></Route>
+            <Route path="/login" element={<Login />}></Route>
+            <Route path="/register" element={<Register />}></Route>
+            <Route path="/home" element={<Home />}></Route>
+            <Route path="/sidenav" element={<Sidebar />}></Route>
+            <Route path="/nav" element={<NavBar />}></Route>
           </Routes>
-          
         </BrowserRouter>
       </Provider>
     </div>

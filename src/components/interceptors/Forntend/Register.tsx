@@ -60,7 +60,7 @@ const Register = () => {
             <input
               type="text"
               name="name"
-              placeholder="KISHORE KUMARAN"
+              placeholder="ex :KISHORE KUMARAN"
               onChange={(e) => handleChange(e)}
             ></input>
             <br />
@@ -71,7 +71,7 @@ const Register = () => {
 
             <input
               type="email"
-              placeholder="kk@dorustrree.in"
+              placeholder="ex :kk@dorustrree.in"
               name="email"
               onChange={(e) => handleChange(e)}
             ></input>
@@ -83,7 +83,7 @@ const Register = () => {
             </div>
             <input
               type="number"
-              placeholder="1234567890"
+              placeholder="ex:1234567890"
               name="mobilenumber"
               onChange={(e) => handleChange(e)}
             ></input>

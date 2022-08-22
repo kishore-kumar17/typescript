@@ -4,7 +4,6 @@ import axios from 'axios';
 const customAxios = axios.create({
   baseURL: 'http://localhost:5000/',
 });
-
 const reqInterceptor = customAxios.interceptors.request.use(
   async (config) => {
     const token = localStorage.getItem('access_token');
@@ -19,7 +18,6 @@ const reqInterceptor = customAxios.interceptors.request.use(
 );
 
 createAxiosResponseInterceptor();
-
 function createAxiosResponseInterceptor() {
   customAxios.interceptors.response.use(
     (response) => response,

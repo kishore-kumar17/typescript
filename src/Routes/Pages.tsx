@@ -30,7 +30,7 @@ const Pages = () => {
           <Link to="/login">INTERCEPTORS</Link>
         </li>
         <li>
-          <Link to="/mui">sidenav</Link>
+          <Link to="/sidenav">sidenav</Link>
         </li>
         <li>
           <Link to="/nav"> side navigation</Link>
